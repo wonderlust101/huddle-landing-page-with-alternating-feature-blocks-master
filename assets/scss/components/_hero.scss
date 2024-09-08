@@ -1,0 +1,43 @@
+@use '../abstract' as a;
+
+.hero {
+  display: grid;
+  justify-items: center;
+  gap: 3.5rem;
+  width: 100%;
+  padding: 2.5rem;
+
+  @include a.breakpoint(medium) {
+    grid-template-columns: 40% 1fr;
+    align-items: center;
+    padding: 2.5rem 6rem;
+  }
+
+  &__text {
+    display: grid;
+    justify-items: center;
+    gap: 1.5rem;
+    text-align: center;
+    
+    @include a.breakpoint(medium){
+      justify-items: flex-start;
+      align-content: center;
+      gap: 2rem;
+      text-align: left;
+    }
+
+    & > :last-child {
+      margin-top: 0.5rem;
+      width: 80%;
+
+      @include a.breakpoint(medium){
+        margin-top: unset;
+        width: max-content;
+      }
+    }
+  }
+  
+  &__body {
+    font-size: 1rem;
+  }
+}

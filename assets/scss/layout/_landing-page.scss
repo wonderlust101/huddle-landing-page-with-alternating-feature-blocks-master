@@ -1,0 +1,95 @@
+@use '../abstract' as a;
+
+.landing-page {
+  display: grid;
+  gap: 3rem;
+  justify-items: center;
+
+  &__header-hero {
+    background: url('../images/bg-hero-mobile.svg') var(--clr-neutral-color-very-pale-cyan);
+    background-size: contain;
+    width: 100%;
+
+    @include a.breakpoint(medium) {
+      background: url('../images/bg-hero-desktop.svg') var(--clr-neutral-color-very-pale-cyan);
+      background-size: contain;
+    }
+  }
+
+  &__content {
+    display: grid;
+    justify-items: center;
+    width: 100%;
+  }
+
+  &__section-grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-items: center;
+    gap: 2.5rem;
+    padding: 0 1.25rem;
+  }
+
+  &__section {
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: 3rem;
+    max-width: 100rem;
+    padding: 2.5rem;
+    text-align: center;
+    border-radius: 1rem;
+    box-shadow: 0 0 14px 0 var(--clr-box-shadow);
+
+    @include a.breakpoint(medium) {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 10rem;
+      padding: 3.5rem 2rem 3.5rem 7.5rem;
+      text-align: left;
+    }
+
+    &:nth-child(2n +1) {
+      & > *:first-child {
+        @include a.breakpoint(medium) {
+          order: 1;
+        }
+      }
+    }
+  }
+  
+  &__section-image {
+   width: min(100%, 30rem); 
+  }
+
+  &__section-text {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  &__section-body {
+    color: var(--clr-neutral-color-grayish-blue);
+  }
+
+  &__cta {
+    display: grid;
+    justify-items: center;
+    gap: 1.5rem;
+    position: relative;
+    top: 8.5rem;
+    width: min(calc(100% - 1.5rem), 60rem);
+    padding: 2.5rem 0.75rem;
+    text-align: center;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 0 14px 0 var(--clr-box-shadow);
+
+    & > :last-child {
+      width: 70%;
+
+      @include a.breakpoint(medium) {
+        width: max-content;
+      }
+    }
+  }
+}
